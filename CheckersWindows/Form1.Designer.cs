@@ -39,7 +39,7 @@
             this.Player1 = new System.Windows.Forms.TextBox();
             this.Player2 = new System.Windows.Forms.TextBox();
             this.Player2checkBox = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Done = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -134,23 +134,25 @@
             this.Player2checkBox.TabIndex = 9;
             this.Player2checkBox.Text = "Player 2:";
             this.Player2checkBox.UseVisualStyleBackColor = true;
+            this.Player2checkBox.CheckedChanged += new System.EventHandler(this.Player2checkBox_CheckedChanged);
             // 
-            // button1
+            // Done
             // 
-            this.button1.Location = new System.Drawing.Point(177, 269);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Done";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Done.Location = new System.Drawing.Point(177, 269);
+            this.Done.Name = "Done";
+            this.Done.Size = new System.Drawing.Size(94, 29);
+            this.Done.TabIndex = 10;
+            this.Done.Text = "Done";
+            this.Done.UseVisualStyleBackColor = true;
+            this.Done.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
+            this.AcceptButton = this.Done;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 313);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Done);
             this.Controls.Add(this.Player2checkBox);
             this.Controls.Add(this.Player2);
             this.Controls.Add(this.Player1);
@@ -182,6 +184,6 @@
         private TextBox Player1;
         private TextBox Player2;
         private CheckBox Player2checkBox;
-        private Button button1;
+        private Button Done;
     }
 }
