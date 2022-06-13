@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CheckersWindows",
+    "\\CheckersWindows\\bin\\Debug",
+    "\\CheckersWindows\\bin\\Debug\\net6.0-windows",
+    "\\CheckersWindows\\obj\\Debug"
   ],
-  "SelectedNode": "\\B22Ex05ShakedRobinzon203943253FannyGuthmann337957633.sln",
+  "SelectedNode": "\\CheckersWindows\\Form2.cs",
   "PreviewInSolutionExplorer": false
 }

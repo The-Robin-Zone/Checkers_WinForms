@@ -1,3 +1,5 @@
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\Assets\BlackPawn.png
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\Assets\WhitePawn.png
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\CheckersWindows.exe
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\CheckersWindows.deps.json
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\CheckersWindows.runtimeconfig.json
@@ -5,6 +7,7 @@ C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\n
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\CheckersWindows.pdb
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.csproj.AssemblyReference.cache
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Form1.resources
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Form2.resources
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.csproj.GenerateResource.cache
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.AssemblyInfoInputs.cache
@@ -15,6 +18,3 @@ C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\n
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.pdb
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.genruntimeconfig.cache
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\ref\CheckersWindows.dll
-C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Form2.resources
-C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\Assets\BlackPawn.png
-C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\Assets\WhitePawn.png

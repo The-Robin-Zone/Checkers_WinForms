@@ -9,25 +9,20 @@ namespace CheckersWindows
     public class GameBoard
     {
         // $G$ DSN-999 (-3) This Array should be readonly.
-        private Coin[,] m_Board;
+        private readonly Coin[,] r_Board;
         private int m_BoardSize;
 
         public GameBoard(int i_boardSize)
         {
             this.m_BoardSize = i_boardSize + 2;
-            this.m_Board = new Coin[this.m_BoardSize, this.m_BoardSize];
+            this.r_Board = new Coin[this.m_BoardSize, this.m_BoardSize];
         }
 
         public Coin[,] Board
         {
             get
             {
-                return this.m_Board;
-            }
-
-            set
-            {
-                this.m_Board = value;
+                return this.r_Board;
             }
         }
 
@@ -55,12 +50,12 @@ namespace CheckersWindows
                 {
                     if (i % 2 != 0 && j % 2 == 0)
                     {
-                        this.m_Board[i, j] = new Coin('O');
+                        this.r_Board[i, j] = new Coin('O');
                     }
 
                     if (i % 2 == 0 && j % 2 != 0)
                     {
-                        this.m_Board[i, j] = new Coin('O');
+                        this.r_Board[i, j] = new Coin('O');
                     }
                 }
             }
@@ -72,12 +67,12 @@ namespace CheckersWindows
                 {
                     if (i % 2 != 0 && j % 2 == 0)
                     {
-                        this.m_Board[i, j] = new Coin('X');
+                        this.r_Board[i, j] = new Coin('X');
                     }
 
                     if (i % 2 == 0 && j % 2 != 0)
                     {
-                        this.m_Board[i, j] = new Coin('X');
+                        this.r_Board[i, j] = new Coin('X');
                     }
                 }
             }
@@ -89,7 +84,7 @@ namespace CheckersWindows
             {
                 for (int j = 0; j < this.m_BoardSize; j++)
                 {
-                    this.m_Board[i, j] = null;
+                    this.r_Board[i, j] = null;
                 }
             }
         }

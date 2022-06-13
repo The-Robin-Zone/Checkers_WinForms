@@ -14,13 +14,12 @@ namespace CheckersWindows
         private int m_NumberKingsLeft;
         private char m_CoinColor;
 
-        // $G$ CSS-013 (-3) Bad parameter name (should be in the form of i_PascalCase).
-        public Player(string i_playerName, int i_boardSize, char i_coinColor)
+        public Player(string i_PlayerName, int i_BoardSize, char i_CoinColor)
         {
-            this.m_PlayerName = i_playerName;
+            this.m_PlayerName = i_PlayerName;
             this.m_Score = 0;
-            this.m_NumberPawnsLeft = ((i_boardSize - 2) * i_boardSize) / 4;
-            this.m_CoinColor = i_coinColor;
+            this.m_NumberPawnsLeft = ((i_BoardSize - 2) * i_BoardSize) / 4;
+            this.m_CoinColor = i_CoinColor;
         }
 
         public string PlayerName

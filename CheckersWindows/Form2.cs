@@ -30,32 +30,39 @@ namespace CheckersWindows
             int left = 20;
             int top = 150;
             Color[] colors = new Color[] { Color.White, Color.Black };
-            for (int i = 0; i < r_GameManager.GameBoard.BoardSize - 2; i++)
+            for (int i = 1; i < r_GameManager.GameBoard.BoardSize - 1; i++)
             {
                 left = 20;
                 if (i % 2 == 0) { colors[0] = Color.White; colors[1] = Color.Black; }
                 else { colors[0] = Color.Black; colors[1] = Color.White; }
 
-                for (int j = 0; j < r_GameManager.GameBoard.BoardSize - 2; j++)
+                for (int j = 1; j < r_GameManager.GameBoard.BoardSize - 1; j++)
                 {
                     boardPic[i, j] = new PictureBox();
                     boardPic[i, j].BackColor = colors[(j % 2 == 0) ? 1 : 0];
                     boardPic[i, j].Location = new Point(left, top);
                     boardPic[i, j].Size = new Size(60, 60);
                     left += 60;
+
+                    if (r_GameManager.GameBoard.Board[i, j] != null)
+                    {
+                        if (r_GameManager.GameBoard.Board[i, j].CoinColor.CompareTo('O') == 0)
+                        {
+                            boardPic[i, j].Image = Image.FromFile(@"Assets\WhitePawn.png");
+                            boardPic[i, j].SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+                        }
+                        else if(r_GameManager.GameBoard.Board[i, j].CoinColor.CompareTo('X') == 0)
+                        {
+                            boardPic[i, j].Image = Image.FromFile(@"Assets\BlackPawn.png");
+                            boardPic[i, j].SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+                        }
+                    }
+                       
+
                     this.Controls.Add(boardPic[i, j]);
+
                 }
                 top += 60;
-            }
-
-            for (int i = 0; i < r_GameManager.GameBoard.BoardSize - 2; i++)
-            {
-                for (int j = 0; j < r_GameManager.GameBoard.BoardSize - 2; j++)
-                {
-                    if (r_GameManager.GameBoard.Board[i, j].CoinColor ==)
-                    boardPic[i, j].Image = Image.FromFile(@"Assets\BlackPawn.png");
-                    boardPic[i, j].SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-                }
             }
 
                 this.Size = new Size(r_GameManager.GameBoard.BoardSize * 80, r_GameManager.GameBoard.BoardSize * 80);
