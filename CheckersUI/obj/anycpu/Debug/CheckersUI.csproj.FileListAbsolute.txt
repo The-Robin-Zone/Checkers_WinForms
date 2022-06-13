@@ -1,0 +1,7 @@
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersUI\bin\Debug\CheckersUI.exe
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersUI\bin\Debug\CheckersUI.pdb
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersUI\obj\anycpu\Debug\CheckersUI.csproj.AssemblyReference.cache
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersUI\obj\anycpu\Debug\CheckersUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersUI\obj\anycpu\Debug\CheckersUI.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersUI\obj\anycpu\Debug\CheckersUI.exe
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersUI\obj\anycpu\Debug\CheckersUI.pdb
