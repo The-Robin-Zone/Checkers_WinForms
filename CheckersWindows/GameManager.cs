@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CheckersWindows
 {
-    internal class GameManager
+    public class GameManager
     {
         private Player m_Player1;
         private Player m_Player2;
@@ -15,57 +15,57 @@ namespace CheckersWindows
         private bool m_IsRoundDraw;
         private int m_NumOfPlayers;
 
-        public static void EndGame()
+        public GameManager()
         {
-            Output.EndGamePrompt();
-            Environment.Exit(0);
+
         }
-
-        public void InitializeGame()
+        public void InitializeGameManager(string i_Player1, string i_Player2, int i_BoardSize,int i_NumOfPlayers)
         {
-            m_NumOfPlayers = Input.NumberOfPlayers();
-            int boardSize = Input.BoardSize();
-            string namePlayer1 = Input.GetPlayerName(1);
-            this.m_Player1 = new Player(namePlayer1, boardSize, 'O');
-            string namePlayer2 = "Computer";
-
-            if (m_NumOfPlayers == 2)
-            {
-                namePlayer2 = Input.GetPlayerName(2);
-            }
-
-            this.m_Player2 = new Player(namePlayer2, boardSize, 'X');
+            m_NumOfPlayers = i_NumOfPlayers;
+            int boardSize = i_BoardSize;
+            this.m_Player1 = new Player(i_Player1, boardSize, 'O');
+            this.m_Player2 = new Player(i_Player2, boardSize, 'X');
             this.m_GameBoard = new GameBoard(boardSize);
             this.m_GameBoard.InitializeBoard();
             this.m_HasRoundEnded = false;
             this.m_IsRoundDraw = false;
-            Output.PrintInstructions();
-            startGame();
+        }
+
+        public Player Player1
+        {
+            get
+            {
+                return this.m_Player1;
+            }
+        }
+
+        public Player Player2
+        {
+            get
+            {
+                return this.m_Player2;
+            }
+        }
+
+        public GameBoard GameBoard
+        {
+            get
+            {
+                return this.m_GameBoard;
+            }
         }
 
         private void startGame()
         {
-            Output.MoveSyntaxPrompt();
-            Output.CurrentGameStatus(m_Player1, m_Player2);
-            Output.Print2DArray(m_GameBoard);
-            Output.PressToContinuePrompt();
-
             while (!m_HasRoundEnded)
             {
                 if (Logic.AllMovePossible(m_GameBoard, m_Player1).Count != 0)
                 {
-                    Output.Print2DArray(m_GameBoard);
                     startTurn(m_Player1, m_Player2);
                 }
 
                 if (Logic.AllMovePossible(m_GameBoard, m_Player2).Count != 0)
                 {
-                    // if second player is human we also print board
-                    if (m_NumOfPlayers == 2)
-                    {
-                        Output.Print2DArray(m_GameBoard);
-                    }
-
                     startTurn(m_Player2, m_Player1);
                 }
 
@@ -163,12 +163,6 @@ namespace CheckersWindows
             int xEnd = 0;
             int yEnd = 0;
 
-            if (i_CurrPlayerTurn.PlayerName.CompareTo("Computer") != 0)
-            {
-                Output.LimitedTurnPrompt();
-                Output.Print2DArray(m_GameBoard);
-            }
-
             while (isLimitedMoveIllegal)
             {
                 if (m_NumOfPlayers == 1 && string.Equals(i_CurrPlayerTurn.PlayerName, "Computer"))
@@ -217,41 +211,32 @@ namespace CheckersWindows
                 if (player1score > player2score)
                 {
                     m_Player1.Score = player1score - player2score;
-                    Output.CurrentGameStatus(m_Player1, m_Player2);
-                    Output.EndRoundPrompt(m_Player1.PlayerName);
+                    //Output.EndRoundPrompt(m_Player1.PlayerName);
                 }
 
                 if (player1score < player2score)
                 {
                     m_Player2.Score = player2score - player1score;
-                    Output.CurrentGameStatus(m_Player1, m_Player2);
-                    Output.EndRoundPrompt(m_Player2.PlayerName);
+                    //Output.EndRoundPrompt(m_Player2.PlayerName);
                 }
             }
             else
             {
-                Output.EndRoundPrompt("Nobody");
+                //Output.EndRoundPrompt("Nobody");
             }
 
             while (userChoice != 'q' || userChoice != 'n')
             {
-                userChoice = Input.ReadChar();
+                //userChoice = Input.ReadChar();
 
-                if (userChoice == 'q')
-                {
-                    EndGame();
-                }
-                else if (userChoice == 'n')
+                if (userChoice == 'n')
                 {
                     this.m_GameBoard.ClearBoard();
                     this.m_GameBoard.InitializeBoard();
                     this.m_HasRoundEnded = false;
                     startGame();
                 }
-                else
-                {
-                    Output.InvalidInputPrompt();
-                }
+
             }
         }
 
@@ -264,8 +249,8 @@ namespace CheckersWindows
             // Checks that move is syntactically & logically legal
             while (isMoveSyntaxIllegal || isMoveLogicIllegal)
             {
-                o_PlayerMove = Input.ReadMoveString(i_CurrPlayerTurn);
-                isMoveSyntaxIllegal = !Input.IsMoveLegal(o_PlayerMove);
+                //o_PlayerMove = Input.ReadMoveString(i_CurrPlayerTurn);
+                //isMoveSyntaxIllegal = !Input.IsMoveLegal(o_PlayerMove);
                 if (!isMoveSyntaxIllegal)
                 {
                     isMoveLogicIllegal = !Logic.MoveIsValid(this.m_GameBoard, o_PlayerMove, i_CurrPlayerTurn);
@@ -275,14 +260,14 @@ namespace CheckersWindows
                 {
                     if (!Logic.NoOpponentToEat(this.m_GameBoard, i_CurrPlayerTurn.Color))
                     {
-                        Output.MustCapturePromt();
+                        //Output.MustCapturePromt();
                     }
                     else
                     {
-                        Output.InvalidInputPrompt();
+                        //Output.InvalidInputPrompt();
                     }
 
-                    Output.MoveSyntaxPrompt();
+                   // Output.MoveSyntaxPrompt();
                 }
             }
 

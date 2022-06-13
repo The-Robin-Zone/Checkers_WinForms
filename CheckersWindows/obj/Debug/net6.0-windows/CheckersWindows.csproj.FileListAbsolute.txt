@@ -16,3 +16,5 @@ C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\n
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.genruntimeconfig.cache
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\ref\CheckersWindows.dll
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Form2.resources
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\Assets\BlackPawn.png
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\Assets\WhitePawn.png

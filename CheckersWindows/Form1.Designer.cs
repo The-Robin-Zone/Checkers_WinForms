@@ -117,6 +117,7 @@
             this.Player1.Name = "Player1";
             this.Player1.Size = new System.Drawing.Size(125, 27);
             this.Player1.TabIndex = 7;
+            this.Player1.TextChanged += new System.EventHandler(this.Player1_TextChanged);
             // 
             // Player2
             // 
@@ -124,6 +125,7 @@
             this.Player2.Name = "Player2";
             this.Player2.Size = new System.Drawing.Size(125, 27);
             this.Player2.TabIndex = 8;
+            this.Player2.TextChanged += new System.EventHandler(this.Player2_TextChanged);
             // 
             // Player2checkBox
             // 
