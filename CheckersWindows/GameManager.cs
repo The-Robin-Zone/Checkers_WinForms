@@ -14,6 +14,9 @@ namespace CheckersWindows
         private bool m_HasRoundEnded;
         private bool m_IsRoundDraw;
         private int m_NumOfPlayers;
+        private string m_StartLocation;
+        private string m_EndLocation;
+        static Form2 m_Form = Application.OpenForms.OfType<Form2>().FirstOrDefault();
 
         public GameManager()
         {
@@ -55,18 +58,34 @@ namespace CheckersWindows
             }
         }
 
-        private void startGame()
+        public string StartLocation
+        {
+            set
+            {
+                this.m_StartLocation = value;
+            }
+        }
+
+        public string EndLocation
+        {
+            set
+            {
+                this.m_EndLocation = value;
+            }
+        }
+
+        public void startGame()
         {
             while (!m_HasRoundEnded)
             {
                 if (Logic.AllMovePossible(m_GameBoard, m_Player1).Count != 0)
                 {
-                    startTurn(m_Player1, m_Player2);
+                    StartTurn(m_Player1, m_Player2);
                 }
 
                 if (Logic.AllMovePossible(m_GameBoard, m_Player2).Count != 0)
                 {
-                    startTurn(m_Player2, m_Player1);
+                    StartTurn(m_Player2, m_Player1);
                 }
 
                 if (Logic.AllMovePossible(m_GameBoard, m_Player1).Count == 0 && Logic.AllMovePossible(m_GameBoard, m_Player2).Count == 0)
@@ -78,31 +97,31 @@ namespace CheckersWindows
             endRound();
         }
 
-        private void startTurn(Player i_CurrPlayerTurn, Player i_CurrEnemyPlayer)
+        private void StartTurn(Player i_CurrPlayerTurn, Player i_CurrEnemyPlayer)
         {
             bool isMoveJump = true;
-            string PlayerMove = string.Empty;
+            int[] PlayerMove = new int[4];
 
             if (m_NumOfPlayers == 1 && string.Equals(i_CurrPlayerTurn.PlayerName, "Computer"))
             {
-                PlayerMove = Logic.NextMoveComputer(m_GameBoard, m_Player2);
+                //PlayerMove = Logic.NextMoveComputer(m_GameBoard, m_Player2);
             }
             else
             {
                 PlayerMove = getPlayerMove(i_CurrPlayerTurn);
             }
 
-            // Calculates starting and end tiles for the current move
-            int xStart = PlayerMove[1] - 'a' + 1;
-            int yStart = PlayerMove[0] - 'A' + 1;
-            int xEnd = PlayerMove[4] - 'a' + 1;
-            int yEnd = PlayerMove[3] - 'A' + 1;
+            int xStart = PlayerMove[0];
+            int yStart = PlayerMove[1];
+            int xEnd = PlayerMove[2];
+            int yEnd = PlayerMove[3];
 
             // Check if move is jump
             isMoveJump = Logic.IsJump(m_GameBoard, i_CurrPlayerTurn.Color, xStart, yStart, xEnd, yEnd);
 
             // Move Coin
             moveCoin(xStart, yStart, xEnd, yEnd);
+
 
             // Turn coin to king if needed
             if (Logic.ShouldTurnKing(this.m_GameBoard, xEnd, yEnd))
@@ -171,7 +190,7 @@ namespace CheckersWindows
                 }
                 else
                 {
-                    playerLimitedMove = getPlayerMove(i_CurrPlayerTurn);
+                    //playerLimitedMove = getPlayerMove(i_CurrPlayerTurn);
                 }
 
                 xStart = playerLimitedMove[1] - 'a' + 1;
@@ -240,23 +259,20 @@ namespace CheckersWindows
             }
         }
 
-        private string getPlayerMove(Player i_CurrPlayerTurn)
+        public int[] getPlayerMove(Player i_CurrPlayerTurn)
         {
             string o_PlayerMove = string.Empty;
-            bool isMoveSyntaxIllegal = true;
             bool isMoveLogicIllegal = true;
+            int[] o_MoveArray = new int[] { (int)m_StartLocation[0], (int)m_StartLocation[1], (int)m_EndLocation[0], (int)m_EndLocation[1] };
 
-            // Checks that move is syntactically & logically legal
-            while (isMoveSyntaxIllegal || isMoveLogicIllegal)
+       
+            // Checks that move is  logically legal
+            while (isMoveLogicIllegal)
             {
-                //o_PlayerMove = Input.ReadMoveString(i_CurrPlayerTurn);
-                //isMoveSyntaxIllegal = !Input.IsMoveLegal(o_PlayerMove);
-                if (!isMoveSyntaxIllegal)
-                {
-                    isMoveLogicIllegal = !Logic.MoveIsValid(this.m_GameBoard, o_PlayerMove, i_CurrPlayerTurn);
-                }
 
-                if (isMoveSyntaxIllegal || isMoveLogicIllegal)
+                isMoveLogicIllegal = !Logic.MoveIsValid(this.m_GameBoard, i_CurrPlayerTurn, o_MoveArray);
+  
+                if (isMoveLogicIllegal)
                 {
                     if (!Logic.NoOpponentToEat(this.m_GameBoard, i_CurrPlayerTurn.Color))
                     {
@@ -267,17 +283,19 @@ namespace CheckersWindows
                         //Output.InvalidInputPrompt();
                     }
 
-                   // Output.MoveSyntaxPrompt();
                 }
             }
 
-            return o_PlayerMove;
+            return o_MoveArray;
         }
 
         private void moveCoin(int i_XStart, int i_YStart, int i_XEnd, int i_YEnd)
         {
             this.m_GameBoard.Board[i_XEnd, i_YEnd] = this.m_GameBoard.Board[i_XStart, i_YStart];
             this.m_GameBoard.Board[i_XStart, i_YStart] = null;
+
+            m_Form.MovePawn(i_XStart, i_YStart, i_XEnd, i_YEnd);
+          
         }
 
         private void turnToKing(int i_XEnd, int i_YEnd)

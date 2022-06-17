@@ -9,28 +9,24 @@ namespace CheckersWindows
 {
     public class Logic
     {
-        public static bool MoveIsValid(GameBoard i_GameBoard, string i_MoveString, Player i_CurrPlayer)
+        public static bool MoveIsValid(GameBoard i_GameBoard, Player i_CurrPlayer, int[] i_Move)
         {
             bool o_IsMoveValid = true;
-            int xStart = i_MoveString[1] - 'a' + 1;
-            int yStart = i_MoveString[0] - 'A' + 1;
-            int xEnd = i_MoveString[4] - 'a' + 1;
-            int yEnd = i_MoveString[3] - 'A' + 1;
 
             // Check move is in bound of the board
-            if (!MoveIsInbound(i_GameBoard, xStart, yStart, xEnd, yEnd))
+            if (!MoveIsInbound(i_GameBoard, i_Move[0], i_Move[1], i_Move[2], i_Move[3]))
             {
                 o_IsMoveValid = false;
             }
-            else if (IsTileFree(i_GameBoard, xStart, yStart))
+            else if (IsTileFree(i_GameBoard, i_Move[0], i_Move[1]))
             {
                 o_IsMoveValid = false;
             }
-            else if (!CoinExistAtLocation(i_GameBoard, xStart, yStart, i_CurrPlayer.Color))
+            else if (!CoinExistAtLocation(i_GameBoard, i_Move[0], i_Move[1], i_CurrPlayer.Color))
             {
                 o_IsMoveValid = false;
             }
-            else if (!IsTileFree(i_GameBoard, xEnd, yEnd))
+            else if (!IsTileFree(i_GameBoard, i_Move[2], i_Move[3]))
             {
                 o_IsMoveValid = false;
             }
@@ -40,7 +36,7 @@ namespace CheckersWindows
                 o_IsMoveValid = false;
 
                 // Check that player is doing a simple move
-                if (IsSimpleMove(i_GameBoard, i_CurrPlayer.Color, xStart, yStart, xEnd, yEnd))
+                if (IsSimpleMove(i_GameBoard, i_CurrPlayer.Color, i_Move[0], i_Move[1], i_Move[2], i_Move[3]))
                 {
                     o_IsMoveValid = true;
                     if (!NoOpponentToEat(i_GameBoard, i_CurrPlayer.Color))
@@ -48,7 +44,7 @@ namespace CheckersWindows
                         o_IsMoveValid = false;
                     }
                 }
-                else if (IsJump(i_GameBoard, i_CurrPlayer.Color, xStart, yStart, xEnd, yEnd))
+                else if (IsJump(i_GameBoard, i_CurrPlayer.Color, i_Move[0], i_Move[1], i_Move[2], i_Move[3]))
                 {
                     o_IsMoveValid = true;
                 }

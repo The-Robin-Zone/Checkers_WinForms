@@ -11,7 +11,7 @@
         "projectName": "CheckersWindows",
         "projectPath": "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

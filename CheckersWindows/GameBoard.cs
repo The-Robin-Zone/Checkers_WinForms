@@ -8,7 +8,6 @@ namespace CheckersWindows
 {
     public class GameBoard
     {
-        // $G$ DSN-999 (-3) This Array should be readonly.
         private readonly Coin[,] r_Board;
         private int m_BoardSize;
 
