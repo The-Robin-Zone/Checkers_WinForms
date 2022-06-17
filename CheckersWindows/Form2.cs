@@ -103,7 +103,7 @@ namespace CheckersWindows
                         else if (button.Image == null && !m_PawnNotSelcted)
                         {
                             r_GameManager.EndLocation = button.Name;
-                           // r_GameManager.startTurn();
+                            r_GameManager.StartTurn();
 
                         }
                     };
@@ -137,6 +137,20 @@ namespace CheckersWindows
 
         }
 
+        private void ScorePlayer2_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        public void CoinCaptured(int i_XStart, int i_YStart, int i_XEnd, int i_YEnd)
+        {
+            int xMiddle = (i_XStart + i_XEnd) / 2;
+            int yMiddle = (i_YStart + i_YEnd) / 2;
+            m_ButtonArray[xMiddle, yMiddle].Image = null;
+            m_ButtonArray[i_XStart, i_YStart].BackColor = Color.White;
+            m_ButtonArray[i_XEnd, i_YEnd].BackColor = Color.White;
+            m_PawnNotSelcted = true;
+
+        }
     }
 }

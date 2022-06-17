@@ -10,6 +10,8 @@ namespace CheckersWindows
     {
         private Player m_Player1;
         private Player m_Player2;
+        private Player m_CurrPlayerTurn;
+        private Player m_CurrEnemyPlayer;
         private GameBoard m_GameBoard;
         private bool m_HasRoundEnded;
         private bool m_IsRoundDraw;
@@ -22,7 +24,7 @@ namespace CheckersWindows
         {
 
         }
-        public void InitializeGameManager(string i_Player1, string i_Player2, int i_BoardSize,int i_NumOfPlayers)
+        public void InitializeGameManager(string i_Player1, string i_Player2, int i_BoardSize, int i_NumOfPlayers)
         {
             m_NumOfPlayers = i_NumOfPlayers;
             int boardSize = i_BoardSize;
@@ -32,6 +34,8 @@ namespace CheckersWindows
             this.m_GameBoard.InitializeBoard();
             this.m_HasRoundEnded = false;
             this.m_IsRoundDraw = false;
+            m_CurrPlayerTurn = Player1;
+            m_CurrEnemyPlayer = Player2;
         }
 
         public Player Player1
@@ -76,9 +80,10 @@ namespace CheckersWindows
 
         public void startGame()
         {
+
             while (!m_HasRoundEnded)
             {
-                if (Logic.AllMovePossible(m_GameBoard, m_Player1).Count != 0)
+                /*if (Logic.AllMovePossible(m_GameBoard, m_Player1).Count != 0)
                 {
                     StartTurn(m_Player1, m_Player2);
                 }
@@ -86,7 +91,7 @@ namespace CheckersWindows
                 if (Logic.AllMovePossible(m_GameBoard, m_Player2).Count != 0)
                 {
                     StartTurn(m_Player2, m_Player1);
-                }
+                }*/
 
                 if (Logic.AllMovePossible(m_GameBoard, m_Player1).Count == 0 && Logic.AllMovePossible(m_GameBoard, m_Player2).Count == 0)
                 {
@@ -97,27 +102,16 @@ namespace CheckersWindows
             endRound();
         }
 
-        private void StartTurn(Player i_CurrPlayerTurn, Player i_CurrEnemyPlayer)
+        public void StartTurn()
         {
             bool isMoveJump = true;
-            int[] PlayerMove = new int[4];
-
-            if (m_NumOfPlayers == 1 && string.Equals(i_CurrPlayerTurn.PlayerName, "Computer"))
-            {
-                //PlayerMove = Logic.NextMoveComputer(m_GameBoard, m_Player2);
-            }
-            else
-            {
-                PlayerMove = getPlayerMove(i_CurrPlayerTurn);
-            }
-
-            int xStart = PlayerMove[0];
-            int yStart = PlayerMove[1];
-            int xEnd = PlayerMove[2];
-            int yEnd = PlayerMove[3];
+            int xStart = m_StartLocation[0] - '0';
+            int yStart = (int)m_StartLocation[1] - '0';
+            int xEnd = (int)m_EndLocation[0] - '0';
+            int yEnd = (int)m_EndLocation[1] - '0';
 
             // Check if move is jump
-            isMoveJump = Logic.IsJump(m_GameBoard, i_CurrPlayerTurn.Color, xStart, yStart, xEnd, yEnd);
+            isMoveJump = Logic.IsJump(m_GameBoard, Player1.Color, xStart, yStart, xEnd, yEnd);
 
             // Move Coin
             moveCoin(xStart, yStart, xEnd, yEnd);
@@ -131,23 +125,26 @@ namespace CheckersWindows
 
             if (isMoveJump)
             {
-                makeCoinCapture(i_CurrPlayerTurn, i_CurrEnemyPlayer, xStart, yStart, xEnd, yEnd);
+                makeCoinCapture(m_CurrPlayerTurn, m_CurrEnemyPlayer, xStart, yStart, xEnd, yEnd);
             }
 
             // Check for draw before ending players turn
-            if (Logic.IsDraw(this.m_GameBoard, i_CurrPlayerTurn) && Logic.IsDraw(this.m_GameBoard, i_CurrEnemyPlayer))
+            if (Logic.IsDraw(this.m_GameBoard, m_CurrPlayerTurn) && Logic.IsDraw(this.m_GameBoard, m_CurrEnemyPlayer))
             {
                 this.m_HasRoundEnded = true;
                 this.m_IsRoundDraw = true;
                 endRound();
             }
-
+            Player tempPlayer = m_CurrPlayerTurn;
+            m_CurrPlayerTurn = m_CurrEnemyPlayer;
+            m_CurrEnemyPlayer = tempPlayer;
         }
 
         private void makeCoinCapture(Player i_CurrPlayerTurn, Player i_CurrEnemyPlayer, int i_XStart, int i_YStart, int i_XEnd, int i_YEnd)
         {
             bool wasKingCaptured = this.m_GameBoard.Board[(i_XStart + i_XEnd) / 2, (i_YStart + i_YEnd) / 2].IsKing;
             this.m_GameBoard.Board[(i_XStart + i_XEnd) / 2, (i_YStart + i_YEnd) / 2] = null;
+            m_Form.CoinCaptured(i_XStart, i_YStart, i_XEnd, i_YEnd);
 
             // Updates enemy player Coin count
             if (wasKingCaptured)
@@ -265,13 +262,13 @@ namespace CheckersWindows
             bool isMoveLogicIllegal = true;
             int[] o_MoveArray = new int[] { (int)m_StartLocation[0], (int)m_StartLocation[1], (int)m_EndLocation[0], (int)m_EndLocation[1] };
 
-       
+
             // Checks that move is  logically legal
             while (isMoveLogicIllegal)
             {
 
                 isMoveLogicIllegal = !Logic.MoveIsValid(this.m_GameBoard, i_CurrPlayerTurn, o_MoveArray);
-  
+
                 if (isMoveLogicIllegal)
                 {
                     if (!Logic.NoOpponentToEat(this.m_GameBoard, i_CurrPlayerTurn.Color))
@@ -295,7 +292,7 @@ namespace CheckersWindows
             this.m_GameBoard.Board[i_XStart, i_YStart] = null;
 
             m_Form.MovePawn(i_XStart, i_YStart, i_XEnd, i_YEnd);
-          
+
         }
 
         private void turnToKing(int i_XEnd, int i_YEnd)

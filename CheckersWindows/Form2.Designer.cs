@@ -113,6 +113,7 @@
             this.ScorePlayer2.TabIndex = 3;
             this.ScorePlayer2.Text = "0";
             this.ScorePlayer2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ScorePlayer2.TextChanged += new System.EventHandler(this.ScorePlayer2_TextChanged);
             // 
             // Score2
             // 
