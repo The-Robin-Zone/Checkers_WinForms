@@ -14,6 +14,7 @@ namespace CheckersWindows
             GameManager gameManager = new GameManager();
             Application.Run(new Form1(gameManager));
             Application.Run(new Form2(gameManager));
+            
 
         }
     }

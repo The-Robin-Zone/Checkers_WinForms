@@ -47,14 +47,17 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.ScorePlayer1);
             this.panel1.Controls.Add(this.Score1);
             this.panel1.Controls.Add(this.Player1);
-            this.panel1.Location = new System.Drawing.Point(27, 49);
+            this.panel1.Location = new System.Drawing.Point(0, 31);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(244, 93);
+            this.panel1.Size = new System.Drawing.Size(180, 120);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // ScorePlayer1
             // 
@@ -62,7 +65,7 @@
             this.ScorePlayer1.Enabled = false;
             this.ScorePlayer1.ForeColor = System.Drawing.Color.Red;
             this.ScorePlayer1.HideSelection = false;
-            this.ScorePlayer1.Location = new System.Drawing.Point(81, 53);
+            this.ScorePlayer1.Location = new System.Drawing.Point(81, 72);
             this.ScorePlayer1.Name = "ScorePlayer1";
             this.ScorePlayer1.ReadOnly = true;
             this.ScorePlayer1.Size = new System.Drawing.Size(76, 27);
@@ -73,7 +76,7 @@
             // Score1
             // 
             this.Score1.AutoSize = true;
-            this.Score1.Location = new System.Drawing.Point(26, 53);
+            this.Score1.Location = new System.Drawing.Point(11, 72);
             this.Score1.Name = "Score1";
             this.Score1.Size = new System.Drawing.Size(49, 20);
             this.Score1.TabIndex = 1;
@@ -82,7 +85,7 @@
             // Player1
             // 
             this.Player1.AutoSize = true;
-            this.Player1.Location = new System.Drawing.Point(26, 20);
+            this.Player1.Location = new System.Drawing.Point(11, 32);
             this.Player1.Name = "Player1";
             this.Player1.Size = new System.Drawing.Size(64, 20);
             this.Player1.TabIndex = 0;
@@ -91,14 +94,18 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.ScorePlayer2);
             this.panel2.Controls.Add(this.Score2);
             this.panel2.Controls.Add(this.Player2);
-            this.panel2.Location = new System.Drawing.Point(372, 49);
+            this.panel2.Location = new System.Drawing.Point(180, 31);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(244, 93);
+            this.panel2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(180, 120);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // ScorePlayer2
             // 
@@ -106,7 +113,7 @@
             this.ScorePlayer2.Enabled = false;
             this.ScorePlayer2.ForeColor = System.Drawing.Color.Red;
             this.ScorePlayer2.HideSelection = false;
-            this.ScorePlayer2.Location = new System.Drawing.Point(117, 53);
+            this.ScorePlayer2.Location = new System.Drawing.Point(89, 76);
             this.ScorePlayer2.Name = "ScorePlayer2";
             this.ScorePlayer2.ReadOnly = true;
             this.ScorePlayer2.Size = new System.Drawing.Size(76, 27);
@@ -118,7 +125,7 @@
             // Score2
             // 
             this.Score2.AutoSize = true;
-            this.Score2.Location = new System.Drawing.Point(26, 53);
+            this.Score2.Location = new System.Drawing.Point(23, 79);
             this.Score2.Name = "Score2";
             this.Score2.Size = new System.Drawing.Size(53, 20);
             this.Score2.TabIndex = 1;
@@ -127,7 +134,7 @@
             // Player2
             // 
             this.Player2.AutoSize = true;
-            this.Player2.Location = new System.Drawing.Point(26, 20);
+            this.Player2.Location = new System.Drawing.Point(23, 32);
             this.Player2.Name = "Player2";
             this.Player2.Size = new System.Drawing.Size(64, 20);
             this.Player2.TabIndex = 0;
@@ -140,7 +147,7 @@
             this.optionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(859, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(501, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -156,15 +163,16 @@
             // gameRulesToolStripMenuItem
             // 
             this.gameRulesToolStripMenuItem.Name = "gameRulesToolStripMenuItem";
-            this.gameRulesToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
+            this.gameRulesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.gameRulesToolStripMenuItem.Text = "Game Rules";
+            this.gameRulesToolStripMenuItem.Click += new System.EventHandler(this.gameRulesToolStripMenuItem_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(859, 549);
+            this.ClientSize = new System.Drawing.Size(501, 375);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -172,6 +180,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form2";
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkers";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);

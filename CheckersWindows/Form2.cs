@@ -32,12 +32,12 @@ namespace CheckersWindows
             ScorePlayer2.Text = r_GameManager.Player2.Score.ToString();
 
             m_ButtonArray = new Button[r_GameManager.GameBoard.BoardSize, r_GameManager.GameBoard.BoardSize];
-            int left = 20;
+            int left = 0;
             int top = 150;
             Color[] colors = new Color[] { Color.White, Color.Black };
             for (int i = 1; i < r_GameManager.GameBoard.BoardSize - 1; i++)
             {
-                left = 20;
+                left = 0;
                 if (i % 2 == 0) { colors[0] = Color.White; colors[1] = Color.Black; }
                 else { colors[0] = Color.Black; colors[1] = Color.White; }
 
@@ -151,6 +151,22 @@ namespace CheckersWindows
             m_ButtonArray[i_XEnd, i_YEnd].BackColor = Color.White;
             m_PawnNotSelcted = true;
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gameRulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 gameRules = new Form3();
+            gameRules.ShowDialog();
         }
     }
 }
