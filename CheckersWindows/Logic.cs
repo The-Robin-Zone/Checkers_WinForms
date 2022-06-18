@@ -364,8 +364,6 @@ namespace CheckersWindows
             {
                 o_ShouldTurnKing = false;
             }
-
-            // Check if color O is go to the last row
             else if (i_GameBoard.Board[i_XPoint, i_YPoint].CoinColor.CompareTo('O') == 0)
             {
                 if (i_XPoint != i_GameBoard.BoardSize - 2)

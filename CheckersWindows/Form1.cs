@@ -3,6 +3,7 @@ namespace CheckersWindows
     public partial class Form1 : Form
     {
         private readonly GameManager r_GameManager;
+
         public Form1(GameManager i_GameManager)
         {
             InitializeComponent();
@@ -18,7 +19,6 @@ namespace CheckersWindows
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,10 +33,12 @@ namespace CheckersWindows
             {
                 boardSize = 10;
             }
+
             if (Player2checkBox.Checked)
             {
                 numOfPlayers = 2;
             }
+
             r_GameManager.InitializeGameManager(Player1.Text, Player2.Text, boardSize, numOfPlayers);
 
             this.Close();
@@ -47,24 +49,21 @@ namespace CheckersWindows
             if (Player2checkBox.Checked)
             {
                 Player2.Enabled = true;
-                Player2.Text = String.Empty;
+                Player2.Text = string.Empty;
             }
             else
             {
                 Player2.Enabled = false;
                 Player2.Text = "[Computer]";
-
             }
         }
 
         private void Player1_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void Player2_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

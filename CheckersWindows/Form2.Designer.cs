@@ -1,6 +1,6 @@
 ﻿namespace CheckersWindows
 {
-    partial class Form2
+    public partial class Form2
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -30,10 +31,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PictureBoxplayer1 = new System.Windows.Forms.PictureBox();
             this.ScorePlayer1 = new System.Windows.Forms.TextBox();
             this.Score1 = new System.Windows.Forms.Label();
             this.Player1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.PictureBoxplayer2 = new System.Windows.Forms.PictureBox();
             this.ScorePlayer2 = new System.Windows.Forms.TextBox();
             this.Score2 = new System.Windows.Forms.Label();
             this.Player2 = new System.Windows.Forms.Label();
@@ -41,14 +44,17 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameRulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxplayer1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxplayer2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.PictureBoxplayer1);
             this.panel1.Controls.Add(this.ScorePlayer1);
             this.panel1.Controls.Add(this.Score1);
             this.panel1.Controls.Add(this.Player1);
@@ -58,6 +64,15 @@
             this.panel1.Size = new System.Drawing.Size(180, 120);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // PictureBoxplayer1
+            // 
+            this.PictureBoxplayer1.Location = new System.Drawing.Point(11, 32);
+            this.PictureBoxplayer1.Name = "PictureBoxplayer1";
+            this.PictureBoxplayer1.Size = new System.Drawing.Size(17, 17);
+            this.PictureBoxplayer1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxplayer1.TabIndex = 3;
+            this.PictureBoxplayer1.TabStop = false;
             // 
             // ScorePlayer1
             // 
@@ -77,39 +92,50 @@
             // Score1
             // 
             this.Score1.AutoSize = true;
+            this.Score1.Font = new System.Drawing.Font("MS Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Score1.ForeColor = System.Drawing.Color.White;
             this.Score1.Location = new System.Drawing.Point(11, 72);
             this.Score1.Name = "Score1";
-            this.Score1.Size = new System.Drawing.Size(49, 20);
+            this.Score1.Size = new System.Drawing.Size(68, 17);
             this.Score1.TabIndex = 1;
             this.Score1.Text = "Score:";
             // 
             // Player1
             // 
             this.Player1.AutoSize = true;
+            this.Player1.Font = new System.Drawing.Font("MS Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Player1.ForeColor = System.Drawing.Color.White;
-            this.Player1.Location = new System.Drawing.Point(11, 32);
+            this.Player1.Location = new System.Drawing.Point(28, 32);
             this.Player1.Name = "Player1";
-            this.Player1.Size = new System.Drawing.Size(64, 20);
+            this.Player1.Size = new System.Drawing.Size(88, 17);
             this.Player1.TabIndex = 0;
-            this.Player1.Text = "Player 1:";
+            this.Player1.Text = "Player 1";
             this.Player1.Click += new System.EventHandler(this.Player1_Click);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.PictureBoxplayer2);
             this.panel2.Controls.Add(this.ScorePlayer2);
             this.panel2.Controls.Add(this.Score2);
             this.panel2.Controls.Add(this.Player2);
             this.panel2.Location = new System.Drawing.Point(180, 31);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.panel2.Size = new System.Drawing.Size(180, 120);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // PictureBoxplayer2
+            // 
+            this.PictureBoxplayer2.Location = new System.Drawing.Point(11, 32);
+            this.PictureBoxplayer2.Name = "PictureBoxplayer2";
+            this.PictureBoxplayer2.Size = new System.Drawing.Size(17, 17);
+            this.PictureBoxplayer2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxplayer2.TabIndex = 4;
+            this.PictureBoxplayer2.TabStop = false;
             // 
             // ScorePlayer2
             // 
@@ -117,7 +143,7 @@
             this.ScorePlayer2.Font = new System.Drawing.Font("MS Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ScorePlayer2.ForeColor = System.Drawing.Color.Red;
             this.ScorePlayer2.HideSelection = false;
-            this.ScorePlayer2.Location = new System.Drawing.Point(82, 72);
+            this.ScorePlayer2.Location = new System.Drawing.Point(81, 72);
             this.ScorePlayer2.Name = "ScorePlayer2";
             this.ScorePlayer2.ReadOnly = true;
             this.ScorePlayer2.Size = new System.Drawing.Size(76, 24);
@@ -129,22 +155,24 @@
             // Score2
             // 
             this.Score2.AutoSize = true;
+            this.Score2.Font = new System.Drawing.Font("MS Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Score2.ForeColor = System.Drawing.Color.White;
-            this.Score2.Location = new System.Drawing.Point(14, 75);
+            this.Score2.Location = new System.Drawing.Point(11, 72);
             this.Score2.Name = "Score2";
-            this.Score2.Size = new System.Drawing.Size(53, 20);
+            this.Score2.Size = new System.Drawing.Size(68, 17);
             this.Score2.TabIndex = 1;
-            this.Score2.Text = " Score:";
+            this.Score2.Text = "Score:";
             // 
             // Player2
             // 
             this.Player2.AutoSize = true;
+            this.Player2.Font = new System.Drawing.Font("MS Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Player2.ForeColor = System.Drawing.Color.White;
-            this.Player2.Location = new System.Drawing.Point(14, 32);
+            this.Player2.Location = new System.Drawing.Point(28, 32);
             this.Player2.Name = "Player2";
-            this.Player2.Size = new System.Drawing.Size(64, 20);
+            this.Player2.Size = new System.Drawing.Size(88, 17);
             this.Player2.TabIndex = 0;
-            this.Player2.Text = "Player 2:";
+            this.Player2.Text = "Player 2";
             // 
             // menuStrip1
             // 
@@ -191,8 +219,10 @@
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxplayer1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxplayer2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -213,5 +243,7 @@
         private ToolStripMenuItem gameRulesToolStripMenuItem;
         public TextBox ScorePlayer1;
         public TextBox ScorePlayer2;
+        public PictureBox PictureBoxplayer1;
+        public PictureBox PictureBoxplayer2;
     }
 }

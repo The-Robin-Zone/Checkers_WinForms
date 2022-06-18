@@ -22,17 +22,14 @@ namespace CheckersWindows
                 "6. A pawn which reaches the far side of the board, whether by means of a jump or a simple move, becomes a King," + Environment.NewLine +
                 "7. Kings can move forward or backward, one square at a time in a diagonal direction to an unoccupied square." + Environment.NewLine +
                 "8. Whenever a player is able to make a capture he must do so. \nWhen there is more than one way to jump, a player may choose any way he wishes, not necessarily the one which results in the capture of the greatest number of opposing units. \nHowever, once a player chooses a sequence of captures, he must make all the captures possible in that sequence.";
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-         
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

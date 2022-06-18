@@ -44,3 +44,4 @@ C:\Users\fanny\OneDrive\Bureau\ex5\CheckersWindows\obj\Debug\net6.0-windows\refi
 C:\Users\fanny\OneDrive\Bureau\ex5\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.pdb
 C:\Users\fanny\OneDrive\Bureau\ex5\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.genruntimeconfig.cache
 C:\Users\fanny\OneDrive\Bureau\ex5\CheckersWindows\obj\Debug\net6.0-windows\ref\CheckersWindows.dll
+C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Properties.Resources.resources

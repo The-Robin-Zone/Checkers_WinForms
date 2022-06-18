@@ -8,25 +8,25 @@ namespace CheckersWindows
 {
     public class GameManager
     {
+        public static Form2 m_Form = Application.OpenForms.OfType<Form2>().FirstOrDefault();
         private Player m_Player1;
         private Player m_Player2;
         private Player m_CurrPlayerTurn;
         private Player m_CurrEnemyPlayer;
         private GameBoard m_GameBoard;
-        private bool m_HasRoundEnded;
         private bool m_IsRoundDraw;
+        private bool m_HasRoundEnded;
         private int m_NumOfPlayers;
         private string m_StartLocation;
         private string m_EndLocation;
         private int m_XLimitedTurn;
         private int m_YLimitedTurn;
         private bool m_IsLimitedTurn;
-        static Form2 m_Form = Application.OpenForms.OfType<Form2>().FirstOrDefault();
 
         public GameManager()
         {
-
         }
+
         public void InitializeGameManager(string i_Player1, string i_Player2, int i_BoardSize, int i_NumOfPlayers)
         {
             m_NumOfPlayers = i_NumOfPlayers;
@@ -79,6 +79,7 @@ namespace CheckersWindows
             {
                 return this.m_StartLocation;
             }
+
             set
             {
                 this.m_StartLocation = value;
@@ -103,7 +104,7 @@ namespace CheckersWindows
 
             if (!isPlayerMoveLegal(xStart, yStart, xEnd, yEnd))
             {
-                m_Form.Text = String.Format("Checkers ({0}'s turn)", m_CurrEnemyPlayer.PlayerName);
+                m_Form.Text = string.Format("Checkers ({0}'s turn)", m_CurrEnemyPlayer.PlayerName);
 
                 // Check if move is jump
                 isMoveJump = Logic.IsJump(m_GameBoard, m_CurrPlayerTurn.Color, xStart, yStart, xEnd, yEnd);
@@ -122,7 +123,7 @@ namespace CheckersWindows
                     makeCoinCapture(m_CurrPlayerTurn, m_CurrEnemyPlayer, xStart, yStart, xEnd, yEnd);
                 }
 
-                // Check for draw before ending players turn
+                // Check for draw before ending pl.m_HasRoundEndedayers turn
                 if (Logic.IsDraw(this.m_GameBoard, m_CurrPlayerTurn) && Logic.IsDraw(this.m_GameBoard, m_CurrEnemyPlayer))
                 {
                     this.m_HasRoundEnded = true;
@@ -134,12 +135,14 @@ namespace CheckersWindows
                 {
                     endRound();
                 }
+
                 if (!m_IsLimitedTurn)
                 {
                     Player tempPlayer = m_CurrPlayerTurn;
                     m_CurrPlayerTurn = m_CurrEnemyPlayer;
                     m_CurrEnemyPlayer = tempPlayer;
                 }
+
                 if (m_NumOfPlayers == 1 && m_CurrPlayerTurn == m_Player2)
                 {
                     string move = Logic.NextMoveComputer(m_GameBoard, m_Player2);
@@ -147,8 +150,7 @@ namespace CheckersWindows
                     m_EndLocation = move.Substring(2);
                     StartTurn();
                 }
-            }
-            
+            }      
         }
 
         private void makeCoinCapture(Player i_CurrPlayerTurn, Player i_CurrEnemyPlayer, int i_XStart, int i_YStart, int i_XEnd, int i_YEnd)
@@ -196,58 +198,56 @@ namespace CheckersWindows
                 if (player1score > player2score)
                 {
                     m_Player1.Score += player1score - player2score;
-                    m_Form.ScorePlayer1.Text = (player1score - player2score).ToString();
-                    dialogResult = MessageBox.Show((String.Format("{0} Won!" + Environment.NewLine + "Another Round?",m_Player1.PlayerName)),"Checkers", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    m_Form.ScorePlayer1.Text = m_Player1.Score.ToString();
+                    dialogResult = MessageBox.Show(string.Format("{0} Won!" + Environment.NewLine + "Another Round?", m_Player1.PlayerName), "Checkers", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 }
 
                 if (player1score < player2score)
                 {
                     m_Player2.Score += player2score - player1score;
-                    m_Form.ScorePlayer2.Text = (player2score - player1score).ToString();
-                    dialogResult = MessageBox.Show((String.Format("{0} Won!" + Environment.NewLine + "Another Round?", m_Player2.PlayerName)), "Checkers", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    m_Form.ScorePlayer2.Text = m_Player2.Score.ToString();
+                    dialogResult = MessageBox.Show(string.Format("{0} Won!" + Environment.NewLine + "Another Round?", m_Player2.PlayerName), "Checkers", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 }
             }
             else
             {
-                dialogResult = MessageBox.Show(String.Format("Tie!" + Environment.NewLine + "Another Round?"), "Checkers", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                dialogResult = MessageBox.Show(string.Format("Tie!" + Environment.NewLine + "Another Round?"), "Checkers", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             }
 
             if (dialogResult == DialogResult.Yes)
             {
                 this.m_GameBoard.ClearBoard();
                 this.m_GameBoard.InitializeBoard();
-                this.m_Player1.NumberPawnsLeft = (((this.m_GameBoard.BoardSize - 2) / 2) - 1) * (this.m_GameBoard.BoardSize - 2) / 2;
-                this.m_Player2.NumberPawnsLeft = (((this.m_GameBoard.BoardSize - 2) / 2) - 1) * (this.m_GameBoard.BoardSize - 2) / 2;
+                InitializePlayers();
                 this.m_CurrPlayerTurn = this.m_Player1;
                 this.m_CurrEnemyPlayer = this.m_Player2;
                 this.m_HasRoundEnded = false;
                 m_Form.Hide();
                 m_Form = new Form2(this);
                 m_Form.ShowDialog();
-
             }
             else
             {
                 Environment.Exit(0);
             }
-
         }
 
         private bool isPlayerMoveLegal(int i_XStart, int i_YStart, int i_XEnd, int i_YEnd)
         {
             bool o_IsMoveLogicIllegal = true;
-
             o_IsMoveLogicIllegal = !Logic.MoveIsValid(this.m_GameBoard, m_CurrPlayerTurn, i_XStart, i_YStart, i_XEnd, i_YEnd);
             if (m_IsLimitedTurn)
             {
                 if (m_XLimitedTurn != i_XStart || m_YLimitedTurn != i_YStart)
                 {
                     o_IsMoveLogicIllegal = true;
-                } else
+                } 
+                else
                 {
                     m_IsLimitedTurn = false;
                 }
             }
+
             if (o_IsMoveLogicIllegal)
             {
                 if (!Logic.NoOpponentToEat(this.m_GameBoard, m_CurrPlayerTurn.Color))
@@ -258,7 +258,6 @@ namespace CheckersWindows
                 {
                     MessageBox.Show("Illegal Move");
                 }
-
             }
 
             return o_IsMoveLogicIllegal;
@@ -268,15 +267,12 @@ namespace CheckersWindows
         {
             this.m_GameBoard.Board[i_XEnd, i_YEnd] = this.m_GameBoard.Board[i_XStart, i_YStart];
             this.m_GameBoard.Board[i_XStart, i_YStart] = null;
-
             m_Form.MovePawn(i_XStart, i_YStart, i_XEnd, i_YEnd);
-
         }
 
         private void turnToKing(int i_XEnd, int i_YEnd)
         {
             this.m_GameBoard.Board[i_XEnd, i_YEnd].IsKing = true;
-
             if (this.m_GameBoard.Board[i_XEnd, i_YEnd].CoinColor == 'O')
             {
                 this.m_GameBoard.Board[i_XEnd, i_YEnd].CoinColor = 'Q';
@@ -293,5 +289,13 @@ namespace CheckersWindows
 
             m_Form.TurnToKing(i_XEnd, i_YEnd);
         }
+
+        private void InitializePlayers()
+        {
+            this.m_Player1.NumberPawnsLeft = (((this.m_GameBoard.BoardSize - 2) / 2) - 1) * (this.m_GameBoard.BoardSize - 2) / 2;
+            this.m_Player2.NumberPawnsLeft = (((this.m_GameBoard.BoardSize - 2) / 2) - 1) * (this.m_GameBoard.BoardSize - 2) / 2;
+            this.m_Player1.NumberKingsLeft = 0;
+            this.m_Player2.NumberKingsLeft = 0;
+    }
     }
 }
