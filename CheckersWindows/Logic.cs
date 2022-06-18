@@ -9,24 +9,24 @@ namespace CheckersWindows
 {
     public class Logic
     {
-        public static bool MoveIsValid(GameBoard i_GameBoard, Player i_CurrPlayer, int[] i_Move)
+        public static bool MoveIsValid(GameBoard i_GameBoard, Player i_CurrPlayer, int i_XStart, int i_YStart, int i_XEnd, int i_YEnd)
         {
             bool o_IsMoveValid = true;
 
             // Check move is in bound of the board
-            if (!MoveIsInbound(i_GameBoard, i_Move[0], i_Move[1], i_Move[2], i_Move[3]))
+            if (!MoveIsInbound(i_GameBoard, i_XStart, i_YStart, i_XEnd, i_YEnd))
             {
                 o_IsMoveValid = false;
             }
-            else if (IsTileFree(i_GameBoard, i_Move[0], i_Move[1]))
+            else if (IsTileFree(i_GameBoard, i_XStart, i_YStart))
             {
                 o_IsMoveValid = false;
             }
-            else if (!CoinExistAtLocation(i_GameBoard, i_Move[0], i_Move[1], i_CurrPlayer.Color))
+            else if (!CoinExistAtLocation(i_GameBoard, i_XStart, i_YStart, i_CurrPlayer.Color))
             {
                 o_IsMoveValid = false;
             }
-            else if (!IsTileFree(i_GameBoard, i_Move[2], i_Move[3]))
+            else if (!IsTileFree(i_GameBoard, i_XEnd, i_YEnd))
             {
                 o_IsMoveValid = false;
             }
@@ -36,7 +36,7 @@ namespace CheckersWindows
                 o_IsMoveValid = false;
 
                 // Check that player is doing a simple move
-                if (IsSimpleMove(i_GameBoard, i_CurrPlayer.Color, i_Move[0], i_Move[1], i_Move[2], i_Move[3]))
+                if (IsSimpleMove(i_GameBoard, i_CurrPlayer.Color, i_XStart, i_YStart, i_XEnd, i_YEnd))
                 {
                     o_IsMoveValid = true;
                     if (!NoOpponentToEat(i_GameBoard, i_CurrPlayer.Color))
@@ -44,7 +44,7 @@ namespace CheckersWindows
                         o_IsMoveValid = false;
                     }
                 }
-                else if (IsJump(i_GameBoard, i_CurrPlayer.Color, i_Move[0], i_Move[1], i_Move[2], i_Move[3]))
+                else if (IsJump(i_GameBoard, i_CurrPlayer.Color, i_XStart, i_YStart, i_XEnd, i_YEnd))
                 {
                     o_IsMoveValid = true;
                 }
@@ -510,11 +510,11 @@ namespace CheckersWindows
         private static string getStringMove(int i_XStart, int i_Start, int i_XEnd, int i_YEnd)
         {
             string o_StringMove = string.Empty;
-            char xStartLetter = (char)(i_XStart + 'a' - 1);
-            char yStartLetter = (char)(i_Start + 'A' - 1);
-            char xEndLetter = (char)(i_XEnd + 'a' - 1);
-            char yEndLetter = (char)(i_YEnd + 'A' - 1);
-            o_StringMove = string.Empty + yStartLetter + xStartLetter + ">" + yEndLetter + xEndLetter;
+            char xStartLetter = (char)(i_XStart + '0');
+            char yStartLetter = (char)(i_Start + '0');
+            char xEndLetter = (char)(i_XEnd + '0');
+            char yEndLetter = (char)(i_YEnd + '0');
+            o_StringMove = string.Empty + yStartLetter + xStartLetter + yEndLetter + xEndLetter;
             return o_StringMove;
         }
 

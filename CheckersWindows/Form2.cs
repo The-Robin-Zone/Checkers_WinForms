@@ -109,6 +109,10 @@ namespace CheckersWindows
                         {
                             r_GameManager.EndLocation = button.Name;
                             r_GameManager.StartTurn();
+                            int xPosition = r_GameManager.StartLocation[0] - '0';
+                            int yPosition = r_GameManager.StartLocation[1] - '0';
+                            m_ButtonArray[xPosition, yPosition].BackColor = Color.White;
+                            m_PawnNotSelcted = true;
 
                         }
                     };
@@ -137,8 +141,6 @@ namespace CheckersWindows
                 panel2.Size = new Size(300, 120);
                 panel2.Location = new Point(300, 31);
             }
-
-            //r_GameManager.startGame();
 
         }
 
@@ -175,6 +177,19 @@ namespace CheckersWindows
             m_ButtonArray[i_XEnd, i_YEnd].BackColor = Color.White;
             m_PawnNotSelcted = true;
 
+        }
+
+        public void TurnToKing(int i_X, int i_Y)
+        {
+            m_ButtonArray[i_X, i_Y].Image = null;
+            if ( i_X == 1)
+            {
+                m_ButtonArray[i_X, i_Y].Image = Image.FromFile(@"Assets\BlackKing.png");
+            }
+            else
+            {
+                m_ButtonArray[i_X, i_Y].Image = Image.FromFile(@"Assets\WhiteKing.png");
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

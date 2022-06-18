@@ -62,12 +62,13 @@
             // ScorePlayer1
             // 
             this.ScorePlayer1.BackColor = System.Drawing.SystemColors.MenuText;
+            this.ScorePlayer1.Font = new System.Drawing.Font("MS Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ScorePlayer1.ForeColor = System.Drawing.Color.Red;
             this.ScorePlayer1.HideSelection = false;
             this.ScorePlayer1.Location = new System.Drawing.Point(81, 72);
             this.ScorePlayer1.Name = "ScorePlayer1";
             this.ScorePlayer1.ReadOnly = true;
-            this.ScorePlayer1.Size = new System.Drawing.Size(76, 27);
+            this.ScorePlayer1.Size = new System.Drawing.Size(76, 24);
             this.ScorePlayer1.TabIndex = 0;
             this.ScorePlayer1.Text = "0";
             this.ScorePlayer1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -113,12 +114,13 @@
             // ScorePlayer2
             // 
             this.ScorePlayer2.BackColor = System.Drawing.SystemColors.MenuText;
+            this.ScorePlayer2.Font = new System.Drawing.Font("MS Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ScorePlayer2.ForeColor = System.Drawing.Color.Red;
             this.ScorePlayer2.HideSelection = false;
             this.ScorePlayer2.Location = new System.Drawing.Point(82, 72);
             this.ScorePlayer2.Name = "ScorePlayer2";
             this.ScorePlayer2.ReadOnly = true;
-            this.ScorePlayer2.Size = new System.Drawing.Size(76, 27);
+            this.ScorePlayer2.Size = new System.Drawing.Size(76, 24);
             this.ScorePlayer2.TabIndex = 3;
             this.ScorePlayer2.Text = "0";
             this.ScorePlayer2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -167,7 +169,7 @@
             // gameRulesToolStripMenuItem
             // 
             this.gameRulesToolStripMenuItem.Name = "gameRulesToolStripMenuItem";
-            this.gameRulesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gameRulesToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
             this.gameRulesToolStripMenuItem.Text = "Game Rules";
             this.gameRulesToolStripMenuItem.Click += new System.EventHandler(this.gameRulesToolStripMenuItem_Click);
             // 
