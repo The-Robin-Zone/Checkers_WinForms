@@ -129,22 +129,26 @@ namespace CheckersWindows
                     this.m_IsRoundDraw = true;
                     endRound();
                 }
-                if (!m_IsLimitedTurn && m_NumOfPlayers == 2)
-                {
-                    Player tempPlayer = m_CurrPlayerTurn;
-                    m_CurrPlayerTurn = m_CurrEnemyPlayer;
-                    m_CurrEnemyPlayer = tempPlayer;
-                }
 
                 if (Logic.AllMovePossible(m_GameBoard, m_Player1).Count == 0 && Logic.AllMovePossible(m_GameBoard, m_Player2).Count == 0)
                 {
                     endRound();
                 }
+                if (!m_IsLimitedTurn)
+                {
+                    Player tempPlayer = m_CurrPlayerTurn;
+                    m_CurrPlayerTurn = m_CurrEnemyPlayer;
+                    m_CurrEnemyPlayer = tempPlayer;
+                }
+                if (m_NumOfPlayers == 1 && m_CurrPlayerTurn == m_Player2)
+                {
+                    string move = Logic.NextMoveComputer(m_GameBoard, m_Player2);
+                    m_StartLocation = move.Substring(0, 2);
+                    m_EndLocation = move.Substring(2);
+                    StartTurn();
+                }
             }
-            if (m_NumOfPlayers == 1)
-            {
-                startComputerTurn();
-            }
+            
         }
 
         private void makeCoinCapture(Player i_CurrPlayerTurn, Player i_CurrEnemyPlayer, int i_XStart, int i_YStart, int i_XEnd, int i_YEnd)
@@ -319,47 +323,6 @@ namespace CheckersWindows
             }
 
             m_Form.TurnToKing(i_XEnd, i_YEnd);
-        }
-
-        private void startComputerTurn()
-        {
-            string move = Logic.NextMoveComputer(m_GameBoard, m_Player2);
-            int xStart = move[0] - '0';
-            int yStart = move[1] - '0';
-            int xEnd = move[2] - '0';
-            int yEnd = move[3] - '0';
-
-
-            // Check if move is jump
-            bool isMoveJump = Logic.IsJump(m_GameBoard, m_CurrPlayerTurn.Color, xStart, yStart, xEnd, yEnd);
-
-            // Move Coin
-            moveCoin(xStart, yStart, xEnd, yEnd);
-
-            // Turn coin to king if needed
-            if (Logic.ShouldTurnKing(this.m_GameBoard, xEnd, yEnd))
-            {
-                turnToKing(xEnd, yEnd);
-            }
-
-            if (isMoveJump)
-            {
-                makeCoinCapture(m_CurrPlayerTurn, m_CurrEnemyPlayer, xStart, yStart, xEnd, yEnd);
-            }
-
-            // Check for draw before ending players turn
-            if (Logic.IsDraw(this.m_GameBoard, m_CurrPlayerTurn) && Logic.IsDraw(this.m_GameBoard, m_CurrEnemyPlayer))
-            {
-                this.m_HasRoundEnded = true;
-                this.m_IsRoundDraw = true;
-                endRound();
-            }
-            
-            if (Logic.AllMovePossible(m_GameBoard, m_Player1).Count == 0 && Logic.AllMovePossible(m_GameBoard, m_Player2).Count == 0)
-            {
-                endRound();
-            }
-            
         }
     }
 }

@@ -514,7 +514,7 @@ namespace CheckersWindows
             char yStartLetter = (char)(i_Start + '0');
             char xEndLetter = (char)(i_XEnd + '0');
             char yEndLetter = (char)(i_YEnd + '0');
-            o_StringMove = string.Empty + yStartLetter + xStartLetter + yEndLetter + xEndLetter;
+            o_StringMove = string.Empty + xStartLetter + yStartLetter + xEndLetter + yEndLetter;
             return o_StringMove;
         }
 
