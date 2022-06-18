@@ -19,9 +19,14 @@ namespace CheckersWindows
 
         public Form2(GameManager  i_GameManager)
         {
+
             InitializeComponent();
             r_GameManager = i_GameManager;
             this.AllowDrop = true;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            ScorePlayer1.TabStop = false;
+            ScorePlayer2.TabStop = false;
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -113,7 +118,26 @@ namespace CheckersWindows
                 top += 60;
             }
 
-            this.Size = new Size(r_GameManager.GameBoard.BoardSize * 80, r_GameManager.GameBoard.BoardSize * 80);
+            if (r_GameManager.GameBoard.BoardSize == 8)
+            {
+                this.Size = new Size(380, 560);
+                panel2.Location = new Point(180, 31);
+            }
+            else if (r_GameManager.GameBoard.BoardSize == 10)
+            {
+                this.Size = new Size(500,680);
+                panel1.Size = new Size(240, 120);
+                panel2.Size = new Size(240, 120);
+                panel2.Location = new Point(240, 31);
+            }
+            else if (r_GameManager.GameBoard.BoardSize == 12)
+            {
+                this.Size = new Size(620, 800);
+                panel1.Size = new Size(300, 120);
+                panel2.Size = new Size(300, 120);
+                panel2.Location = new Point(300, 31);
+            }
+
             //r_GameManager.startGame();
 
         }
@@ -167,6 +191,11 @@ namespace CheckersWindows
         {
             Form3 gameRules = new Form3();
             gameRules.ShowDialog();
+        }
+
+        private void ScorePlayer1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
