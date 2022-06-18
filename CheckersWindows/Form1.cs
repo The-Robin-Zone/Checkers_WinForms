@@ -11,6 +11,7 @@ namespace CheckersWindows
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Player1.Text = "Player 1";
             Player2.Enabled = false;
             Player2.Text = "[Computer]";
         }

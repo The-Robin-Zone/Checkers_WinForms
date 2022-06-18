@@ -298,7 +298,7 @@ namespace CheckersWindows
         }
 
         // Check if another jump is possible
-        public static bool IsJumpAvalaible(GameBoard i_GameBoard, char i_PlayerColor, int i_XPoint, int i_YPoint)
+        public static bool IsJumpAvailable(GameBoard i_GameBoard, char i_PlayerColor, int i_XPoint, int i_YPoint)
         {
             bool o_IsJumpAvailable = true;
 

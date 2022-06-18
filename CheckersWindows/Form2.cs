@@ -31,6 +31,8 @@ namespace CheckersWindows
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            this.Text = String.Format("Checkers ({0}'s turn)", Player1.Name);
+
             Player1.Text = r_GameManager.Player1.PlayerName;
             Player2.Text = r_GameManager.Player2.PlayerName;
             ScorePlayer1.Text = r_GameManager.Player1.Score.ToString();
@@ -212,5 +214,7 @@ namespace CheckersWindows
         {
 
         }
+
+
     }
 }

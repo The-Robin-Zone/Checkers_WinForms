@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fanny\\OneDrive\\Bureau\\ex5\\CheckersWindows\\CheckersWindows.csproj": {}
+    "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fanny\\OneDrive\\Bureau\\ex5\\CheckersWindows\\CheckersWindows.csproj": {
+    "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fanny\\OneDrive\\Bureau\\ex5\\CheckersWindows\\CheckersWindows.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj",
         "projectName": "CheckersWindows",
-        "projectPath": "C:\\Users\\fanny\\OneDrive\\Bureau\\ex5\\CheckersWindows\\CheckersWindows.csproj",
-        "packagesPath": "C:\\Users\\fanny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fanny\\OneDrive\\Bureau\\ex5\\CheckersWindows\\obj\\",
+        "projectPath": "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\fanny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +61,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

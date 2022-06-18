@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new System.Windows.Forms.Panel();
@@ -211,7 +211,7 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem gameRulesToolStripMenuItem;
-        private TextBox ScorePlayer1;
-        private TextBox ScorePlayer2;
+        public TextBox ScorePlayer1;
+        public TextBox ScorePlayer2;
     }
 }
