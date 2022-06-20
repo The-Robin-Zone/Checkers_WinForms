@@ -12,8 +12,8 @@ namespace CheckersWindows
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             GameManager gameManager = new GameManager();
-            Application.Run(new Form1(gameManager));
-            Application.Run(new Form2(gameManager));
+            Application.Run(new settingsForm(gameManager));
+            Application.Run(new gameForm(gameManager));
         }
     }
 }

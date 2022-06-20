@@ -1,6 +1,6 @@
 ﻿namespace CheckersWindows
 {
-    public partial class Form1
+    public partial class settingsForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(settingsForm));
             this.label1 = new System.Windows.Forms.Label();
             this.radio6 = new System.Windows.Forms.RadioButton();
             this.radio8 = new System.Windows.Forms.RadioButton();
@@ -149,7 +149,7 @@
             this.Done.UseVisualStyleBackColor = true;
             this.Done.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // settingsForm
             // 
             this.AcceptButton = this.Done;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -167,7 +167,7 @@
             this.Controls.Add(this.radio6);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "settingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Settings";
             this.Load += new System.EventHandler(this.Form1_Load);

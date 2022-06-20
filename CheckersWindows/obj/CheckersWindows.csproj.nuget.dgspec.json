@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj": {}
+    "C:\\Users\\User\\source\\repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj": {
+    "C:\\Users\\User\\source\\repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj",
         "projectName": "CheckersWindows",
-        "projectPath": "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj",
+        "projectPath": "C:\\Users\\User\\source\\repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\CheckersWindows.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\User\\Source\\Repos\\The-Robin-Zone\\CheckerUI-\\CheckersWindows\\obj\\",
         "projectStyle": "PackageReference",

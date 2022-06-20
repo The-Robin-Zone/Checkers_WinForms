@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CheckersWindows
 {
-    public partial class Form3 : Form
+    public partial class rulesForm : Form
     {
-        public Form3()
+        public rulesForm()
         {
             InitializeComponent();
             richTextBox1.Text += "Game instructions:" + Environment.NewLine + "1. Each pawn can move forward only, one square at a time in a diagonal direction, to an unoccupied square." + Environment.NewLine +

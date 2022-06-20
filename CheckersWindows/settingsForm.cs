@@ -1,10 +1,10 @@
 namespace CheckersWindows
 {
-    public partial class Form1 : Form
+    public partial class settingsForm : Form
     {
         private readonly GameManager r_GameManager;
 
-        public Form1(GameManager i_GameManager)
+        public settingsForm(GameManager i_GameManager)
         {
             InitializeComponent();
             r_GameManager = i_GameManager;

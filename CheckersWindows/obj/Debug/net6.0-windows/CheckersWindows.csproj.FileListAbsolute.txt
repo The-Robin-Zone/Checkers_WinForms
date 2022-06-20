@@ -6,8 +6,6 @@ C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\n
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\CheckersWindows.dll
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\CheckersWindows.pdb
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.csproj.AssemblyReference.cache
-C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Form1.resources
-C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Form2.resources
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.csproj.GenerateResource.cache
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.AssemblyInfoInputs.cache
@@ -18,7 +16,6 @@ C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\n
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.pdb
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.genruntimeconfig.cache
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\ref\CheckersWindows.dll
-C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Form3.resources
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\Assets\BlackKing.png
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\bin\Debug\net6.0-windows\Assets\WhiteKing.png
 C:\Users\fanny\OneDrive\Bureau\ex5\CheckersWindows\bin\Debug\net6.0-windows\Assets\BlackKing.png
@@ -45,3 +42,6 @@ C:\Users\fanny\OneDrive\Bureau\ex5\CheckersWindows\obj\Debug\net6.0-windows\Chec
 C:\Users\fanny\OneDrive\Bureau\ex5\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.genruntimeconfig.cache
 C:\Users\fanny\OneDrive\Bureau\ex5\CheckersWindows\obj\Debug\net6.0-windows\ref\CheckersWindows.dll
 C:\Users\User\Source\Repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.Properties.Resources.resources
+C:\Users\User\source\repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.gameForm.resources
+C:\Users\User\source\repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.RulesForm.resources
+C:\Users\User\source\repos\The-Robin-Zone\CheckerUI-\CheckersWindows\obj\Debug\net6.0-windows\CheckersWindows.SettingsForm.resources

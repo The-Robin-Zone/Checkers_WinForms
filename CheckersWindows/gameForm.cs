@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace CheckersWindows
 {
-    public partial class Form2 : Form
+    public partial class gameForm : Form
     {
         private readonly GameManager r_GameManager;
         private Button[,] m_ButtonArray;
         private bool m_PawnNotSelcted = true;
 
-        public Form2(GameManager i_GameManager)
+        public gameForm(GameManager i_GameManager)
         {
             InitializeComponent();
             r_GameManager = i_GameManager;
@@ -206,7 +206,7 @@ namespace CheckersWindows
 
         private void gameRulesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 gameRules = new Form3();
+            rulesForm gameRules = new rulesForm();
             gameRules.ShowDialog();
         }
 

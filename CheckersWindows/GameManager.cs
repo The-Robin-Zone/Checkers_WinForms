@@ -8,7 +8,7 @@ namespace CheckersWindows
 {
     public class GameManager
     {
-        public static Form2 m_Form = Application.OpenForms.OfType<Form2>().FirstOrDefault();
+        public static gameForm m_Form = Application.OpenForms.OfType<gameForm>().FirstOrDefault();
         private Player m_Player1;
         private Player m_Player2;
         private Player m_CurrPlayerTurn;
@@ -226,7 +226,7 @@ namespace CheckersWindows
                 this.m_CurrEnemyPlayer = this.m_Player2;
                 this.m_HasRoundEnded = false;
                 m_Form.Hide();
-                m_Form = new Form2(this);
+                m_Form = new gameForm(this);
                 m_Form.ShowDialog();
             }
             else

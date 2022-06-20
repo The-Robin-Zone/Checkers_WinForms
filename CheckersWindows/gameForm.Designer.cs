@@ -1,6 +1,6 @@
 ﻿namespace CheckersWindows
 {
-    public partial class Form2
+    public partial class gameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         /// </summary>
         public void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.PictureBoxplayer1 = new System.Windows.Forms.PictureBox();
             this.ScorePlayer1 = new System.Windows.Forms.TextBox();
@@ -201,7 +201,7 @@
             this.gameRulesToolStripMenuItem.Text = "Game Rules";
             this.gameRulesToolStripMenuItem.Click += new System.EventHandler(this.gameRulesToolStripMenuItem_Click);
             // 
-            // Form2
+            // gameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -212,7 +212,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form2";
+            this.Name = "gameForm";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkers";
