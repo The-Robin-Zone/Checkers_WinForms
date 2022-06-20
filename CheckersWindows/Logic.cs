@@ -505,14 +505,10 @@ namespace CheckersWindows
             return o_AllSimpleMoveAvailable;
         }
 
-        private static string getStringMove(int i_XStart, int i_Start, int i_XEnd, int i_YEnd)
+        private static string getStringMove(int i_XStart, int i_YStart, int i_XEnd, int i_YEnd)
         {
             string o_StringMove = string.Empty;
-            char xStartLetter = (char)(i_XStart + '0');
-            char yStartLetter = (char)(i_Start + '0');
-            char xEndLetter = (char)(i_XEnd + '0');
-            char yEndLetter = (char)(i_YEnd + '0');
-            o_StringMove = string.Empty + xStartLetter + yStartLetter + xEndLetter + yEndLetter;
+            o_StringMove = string.Format("{0} {1}-{2} {3}", i_XStart.ToString(), i_YStart.ToString(), i_XEnd.ToString(), i_YEnd.ToString());
             return o_StringMove;
         }
 

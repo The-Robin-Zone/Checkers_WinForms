@@ -96,11 +96,13 @@ namespace CheckersWindows
 
         public void StartTurn()
         {
+            string[] splitStartLocation = m_StartLocation.Split(" ");
+            string[] splitEndLocationt = m_EndLocation.Split(" ");
             bool isMoveJump = true;
-            int xStart = m_StartLocation[0] - '0';
-            int yStart = m_StartLocation[1] - '0';
-            int xEnd = m_EndLocation[0] - '0';
-            int yEnd = m_EndLocation[1] - '0';
+            int xStart = int.Parse(splitStartLocation[0]);
+            int yStart = int.Parse(splitStartLocation[1]);
+            int xEnd = int.Parse(splitEndLocationt[0]);
+            int yEnd = int.Parse(splitEndLocationt[1]);
 
             if (!isPlayerMoveLegal(xStart, yStart, xEnd, yEnd))
             {
@@ -146,8 +148,9 @@ namespace CheckersWindows
                 if (m_NumOfPlayers == 1 && m_CurrPlayerTurn == m_Player2)
                 {
                     string move = Logic.NextMoveComputer(m_GameBoard, m_Player2);
-                    m_StartLocation = move.Substring(0, 2);
-                    m_EndLocation = move.Substring(2);
+                    string[] splitCompMove = move.Split("-");
+                    m_StartLocation = splitCompMove[0];
+                    m_EndLocation = splitCompMove[1];
                     StartTurn();
                 }
             }      

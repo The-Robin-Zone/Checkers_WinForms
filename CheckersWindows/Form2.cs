@@ -57,7 +57,7 @@ namespace CheckersWindows
                 for (int j = 1; j < r_GameManager.GameBoard.BoardSize - 1; j++)
                 {
                     m_ButtonArray[i, j] = new Button();
-                    m_ButtonArray[i, j].Name = string.Format("{0}{1}", i, j);
+                    m_ButtonArray[i, j].Name = string.Format("{0} {1}", i, j);
                     m_ButtonArray[i, j].BackColor = colors[(j % 2 == 0) ? 1 : 0];
                     if (m_ButtonArray[i, j].BackColor == Color.Black)
                     {
@@ -117,8 +117,9 @@ namespace CheckersWindows
                         {
                             r_GameManager.EndLocation = button.Name;
                             r_GameManager.StartTurn();
-                            int xPosition = r_GameManager.StartLocation[0] - '0';
-                            int yPosition = r_GameManager.StartLocation[1] - '0';
+                            string[] splitStartLocation = r_GameManager.StartLocation.Split(" ");
+                            int xPosition = int.Parse(splitStartLocation[0]);
+                            int yPosition = int.Parse(splitStartLocation[1]);
                             m_ButtonArray[xPosition, yPosition].BackColor = Color.White;
                             m_PawnNotSelcted = true;
                         }
