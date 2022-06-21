@@ -12,9 +12,11 @@ namespace CheckersWindows
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.ControlBox = false;
             Player1.Text = "Player 1";
             Player2.Enabled = false;
             Player2.Text = "[Computer]";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void label1_Click(object sender, EventArgs e)

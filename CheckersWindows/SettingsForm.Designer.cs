@@ -56,6 +56,7 @@
             // radio6
             // 
             this.radio6.AutoSize = true;
+            this.radio6.Checked = true;
             this.radio6.Location = new System.Drawing.Point(23, 66);
             this.radio6.Name = "radio6";
             this.radio6.Size = new System.Drawing.Size(63, 24);
@@ -71,7 +72,6 @@
             this.radio8.Name = "radio8";
             this.radio8.Size = new System.Drawing.Size(63, 24);
             this.radio8.TabIndex = 2;
-            this.radio8.TabStop = true;
             this.radio8.Text = "8 X 8";
             this.radio8.UseVisualStyleBackColor = true;
             // 
@@ -82,7 +82,6 @@
             this.radio10.Name = "radio10";
             this.radio10.Size = new System.Drawing.Size(79, 24);
             this.radio10.TabIndex = 3;
-            this.radio10.TabStop = true;
             this.radio10.Text = "10 X 10";
             this.radio10.UseVisualStyleBackColor = true;
             // 
@@ -167,6 +166,7 @@
             this.Controls.Add(this.radio6);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "settingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Settings";

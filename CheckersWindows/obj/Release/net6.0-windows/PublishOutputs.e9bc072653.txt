@@ -1,0 +1,9 @@
+C:\Users\User\Desktop\CheckersWindows.exe
+C:\Users\User\Desktop\Assets\BlackKing.png
+C:\Users\User\Desktop\Assets\BlackPawn.png
+C:\Users\User\Desktop\Assets\WhiteKing.png
+C:\Users\User\Desktop\Assets\WhitePawn.png
+C:\Users\User\Desktop\CheckersWindows.dll
+C:\Users\User\Desktop\CheckersWindows.deps.json
+C:\Users\User\Desktop\CheckersWindows.runtimeconfig.json
+C:\Users\User\Desktop\CheckersWindows.pdb

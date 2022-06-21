@@ -28,8 +28,13 @@ namespace CheckersWindows
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(380, 560);
             this.Text = string.Format("Checkers ({0}'s turn)", Player1.Name);
-
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            player1Panel.Size = new Size(180, 120);
+            player2Panel.Size = new Size(180, 120);
+            player1Panel.Location = new Point(0, 30);
+            player2Panel.Location = new Point(180, 30);
             Player1.Text = r_GameManager.Player1.PlayerName;
             Player2.Text = r_GameManager.Player2.PlayerName;
             ScorePlayer1.Text = r_GameManager.Player1.Score.ToString();
@@ -131,24 +136,19 @@ namespace CheckersWindows
                 top += 60;
             }
 
-            if (r_GameManager.GameBoard.BoardSize == 8)
-            {
-                this.Size = new Size(380, 560);
-                panel2.Location = new Point(180, 31);
-            }
-            else if (r_GameManager.GameBoard.BoardSize == 10)
+            if (r_GameManager.GameBoard.BoardSize == 10)
             {
                 this.Size = new Size(500, 680);
-                panel1.Size = new Size(240, 120);
-                panel2.Size = new Size(240, 120);
-                panel2.Location = new Point(240, 31);
+                player1Panel.Size = new Size(240, 120);
+                player2Panel.Size = new Size(240, 120);
+                player2Panel.Location = new Point(240, 30);
             }
             else if (r_GameManager.GameBoard.BoardSize == 12)
             {
                 this.Size = new Size(620, 800);
-                panel1.Size = new Size(300, 120);
-                panel2.Size = new Size(300, 120);
-                panel2.Location = new Point(300, 31);
+                player1Panel.Size = new Size(300, 120);
+                player2Panel.Size = new Size(300, 120);
+                player2Panel.Location = new Point(300, 30);
             }
         }
 
@@ -212,6 +212,14 @@ namespace CheckersWindows
 
         private void ScorePlayer1_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void gameForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to exit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

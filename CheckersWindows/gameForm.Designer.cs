@@ -30,12 +30,12 @@
         public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.player1Panel = new System.Windows.Forms.Panel();
             this.PictureBoxplayer1 = new System.Windows.Forms.PictureBox();
             this.ScorePlayer1 = new System.Windows.Forms.TextBox();
             this.Score1 = new System.Windows.Forms.Label();
             this.Player1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.player2Panel = new System.Windows.Forms.Panel();
             this.PictureBoxplayer2 = new System.Windows.Forms.PictureBox();
             this.ScorePlayer2 = new System.Windows.Forms.TextBox();
             this.Score2 = new System.Windows.Forms.Label();
@@ -43,27 +43,27 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameRulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
+            this.player1Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxplayer1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.player2Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxplayer2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // player1Panel
             // 
-            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.PictureBoxplayer1);
-            this.panel1.Controls.Add(this.ScorePlayer1);
-            this.panel1.Controls.Add(this.Score1);
-            this.panel1.Controls.Add(this.Player1);
-            this.panel1.Location = new System.Drawing.Point(0, 31);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 120);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.player1Panel.BackColor = System.Drawing.Color.RoyalBlue;
+            this.player1Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.player1Panel.Controls.Add(this.PictureBoxplayer1);
+            this.player1Panel.Controls.Add(this.ScorePlayer1);
+            this.player1Panel.Controls.Add(this.Score1);
+            this.player1Panel.Controls.Add(this.Player1);
+            this.player1Panel.Location = new System.Drawing.Point(0, 31);
+            this.player1Panel.Margin = new System.Windows.Forms.Padding(0);
+            this.player1Panel.Name = "player1Panel";
+            this.player1Panel.Size = new System.Drawing.Size(180, 120);
+            this.player1Panel.TabIndex = 0;
+            this.player1Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // PictureBoxplayer1
             // 
@@ -112,21 +112,20 @@
             this.Player1.Text = "Player 1";
             this.Player1.Click += new System.EventHandler(this.Player1_Click);
             // 
-            // panel2
+            // player2Panel
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.PictureBoxplayer2);
-            this.panel2.Controls.Add(this.ScorePlayer2);
-            this.panel2.Controls.Add(this.Score2);
-            this.panel2.Controls.Add(this.Player2);
-            this.panel2.Location = new System.Drawing.Point(180, 31);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 120);
-            this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.player2Panel.BackColor = System.Drawing.Color.RoyalBlue;
+            this.player2Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.player2Panel.Controls.Add(this.PictureBoxplayer2);
+            this.player2Panel.Controls.Add(this.ScorePlayer2);
+            this.player2Panel.Controls.Add(this.Score2);
+            this.player2Panel.Controls.Add(this.Player2);
+            this.player2Panel.Location = new System.Drawing.Point(180, 31);
+            this.player2Panel.Margin = new System.Windows.Forms.Padding(0);
+            this.player2Panel.Name = "player2Panel";
+            this.player2Panel.Size = new System.Drawing.Size(180, 120);
+            this.player2Panel.TabIndex = 1;
+            this.player2Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // PictureBoxplayer2
             // 
@@ -207,21 +206,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(515, 422);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.player2Panel);
+            this.Controls.Add(this.player1Panel);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "gameForm";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkers";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.gameForm_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.player1Panel.ResumeLayout(false);
+            this.player1Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxplayer1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.player2Panel.ResumeLayout(false);
+            this.player2Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxplayer2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -232,10 +233,10 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel player1Panel;
         private Label Score1;
         private Label Player1;
-        private Panel panel2;
+        private Panel player2Panel;
         private Label Score2;
         private Label Player2;
         private MenuStrip menuStrip1;
